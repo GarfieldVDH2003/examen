@@ -1,0 +1,44 @@
+Praktijk
+Oef1:
+SELECT * FROM `employees`
+Oef2:
+FROM employees
+JOIN salaries ON employees.emp_no = salaries.emp_no
+WHERE salaries.salary  > 50000;
+Oef3:
+SELECT dept_no,COUNT(*) AS aantal
+FROM dept_emp
+GROUP BY dept_no;
+Oef4:
+
+Oef5:
+SELECT employees.first_name,employees.last_name
+FROM employees
+WHERE last_name LIKE 'D%' AND YEAR (hire_date) = 1997 AND employees.gender = 'f';
+Advanced Queries
+Oef1:
+SELECT customer.customer_id,customer.first_name,customer.last_name
+FROM customer
+Oef2:
+
+SQL-injectie
+Oef1: C
+
+schrijf de funtie:
+
+DELIMITER//
+CREATE FUNCTION count_films_by_category_name
+BEGIN
+
+DECLARE movie_count INT;
+
+SELECT COUNT(film_id) INTO movie_count
+FROM film_category
+INNER JOIN category on film_category.category_id = category.category_id
+WHERE category.name = cat_name;
+
+RETURNS movie_count;
+
+END
+DELIMITER//
+
